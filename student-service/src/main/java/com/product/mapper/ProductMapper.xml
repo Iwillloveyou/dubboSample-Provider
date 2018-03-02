@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.product.mapper.ProductMapper">
+    <!--查询字段-->
+    <sql id="columns">
+       t.pro_id,
+       t.pro_name,
+       t.pro_type,
+       t.pro_price,
+       t.pro_num,
+       t.pro_volumn,
+       t.pro_intro,
+       t.pro_imgsrc,
+       t.pro_tdc
+    </sql>
+
+    <!--查询结果集-->
+    <!-- <resultMap id="beanMap" type="com.product.domain.Product">
+        <result property="pro_id" column="proId"/>
+        <result property="pro_name" column="proName"/>
+        <result property="pro_type" column="proType"/>
+        <result property="pro_price" column="proPrice"/>
+        <result property="pro_num" column="proNum"/>
+        <result property="pro_volumn" column="proVolumn"/>
+        <result property="pro_intro" column="proIntro"/>
+        <result property="pro_imgsrc" column="proImgsrc"/>
+        <result property="pro_tdc" column="proTdc"/>        
+    </resultMap> -->
+
+
+    <!--根据主键获取实体-->
+    <select id="getProducts" resultType="hashmap">
+        SELECT
+        <include refid="columns"/>
+        FROM
+        product t
+    </select>
+
+</mapper>
